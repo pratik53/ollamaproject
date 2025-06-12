@@ -27,29 +27,18 @@ loader = TextLoader('speech.txt')
 text_loader = loader.load()
 final_documents = text_splitter.split_documents(text_loader)
 
-
-
 #PDF loader#
 loader = PyPDFLoader('basic-text.pdf')
 pdf_loader = loader.load()
 final_documents = text_splitter.split_documents(pdf_loader)
 
-
 #Web based loader#
-loader = WebBaseLoader(
-    web_paths=('https://www.moneycontrol.com',),
-    bs_kwargs=dict(parse_only=bs4.SoupStrainer(
-        class_ = ('clearfix MT10')
-    ))
-)
+loader = WebBaseLoader(web_paths=('https://www.moneycontrol.com',),bs_kwargs=dict(parse_only=bs4.SoupStrainer(class_ = ('clearfix MT10'))))
 web_loader = loader.load()
 final_documents = text_splitter.split_documents(web_loader)
 
 #Arxiv#
-loader = ArxivLoader(
-    query="1706.03762",
-    load_max_docs=2
-)
+loader = ArxivLoader(query="1706.03762",load_max_docs=2)
 arxiv_loader = loader.load()
 final_documents = text_splitter.split_documents(arxiv_loader)
 
