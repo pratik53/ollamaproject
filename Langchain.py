@@ -19,12 +19,12 @@ from langchain_community.document_loaders import WikipediaLoader
 
 ##Text chunks##
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+text_splitter = RecursiveCharacterTextSplitter(chunk_size = 500, chunk_overlap = 50)
 
 
 #text loader#
 loader = TextLoader('speech.txt')
 text_loader = loader.load()
-text_splitter = RecursiveCharacterTextSplitter(chunk_size = 500, chunk_overlap = 50)
 final_documents = text_splitter.split_documents(text_loader)
 
 
