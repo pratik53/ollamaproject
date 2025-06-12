@@ -1,0 +1,1 @@
+The huggingface_hub library provides functions to download files from the repositories stored on the Hub. You can use these functions independently or integrate them into your own library, making it more convenient for your users to interact with the Hub. 
